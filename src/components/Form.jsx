@@ -1,5 +1,7 @@
 import React from 'react';
 
+import getShippingCost from '../Parcel'
+
 
 class Form extends React.Component {
     constructor(props) {
@@ -28,12 +30,13 @@ class Form extends React.Component {
    handleSubmit(event) {
     event.preventDefault();
     const data = {
-      name: this.state.name,
-      email: this.state.email,
-      message: this.state.message,
-      newsletter: this.state.newsletter
+      length: this.state.length,
+      breadth: this.state.breadth,
+      height: this.state.height,
+      weight: this.state.weight
     };
-
+    
+   getShippingCost(data)
 }
 
    render () {
