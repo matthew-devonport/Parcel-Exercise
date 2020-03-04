@@ -1,6 +1,5 @@
 const getShippingCost = (parcel) => {
 
-  
 if (parcel === null)  {
    const noPackage = {
        error: "No package provided"
@@ -84,6 +83,4 @@ if (parcel.length <= 400 &&
 }
 }
 
-module.exports = {
-    getShippingCost
-}
+module.exports = getShippingCost

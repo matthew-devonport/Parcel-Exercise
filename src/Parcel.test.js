@@ -1,4 +1,4 @@
-const {getShippingCost} = require('./Parcel')
+const getShippingCost = require('./Parcel')
 
 const missingLengthPackageTest = {
     length: null,

@@ -11,20 +11,17 @@ class Form extends React.Component {
           breadth: '',
           height: '',
           weight: '',
-          cost: ''};
+          result: {
+              error: null,
+              cost: null
+          }};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);  
     }
  
     handleChange(event) {
-    const target = event.target;
-    const value = target.value
-    const name = target.name;
-    
-        this.setState({
-       [name]: value
-        });
-   }
+        this.setState({ [event.target.name]: event.target.value });
+    }
 
    handleSubmit(event) {
     event.preventDefault();
@@ -33,22 +30,31 @@ class Form extends React.Component {
       breadth: this.state.breadth,
       height: this.state.height,
       weight: this.state.weight,
-      cost: this.state.cost
     };
-   getShippingCost(data);
+  const result = getShippingCost(data);
   
+  this.setState({
+    result: result
+})
 }
-
-   render () {
+  render () {  
+ 
     return (
     <div>
     <form id="form" onSubmit={this.handleSubmit}>
+    <h1>SEND A PACKAGE!</h1>
+    <p>Length (mm):</p>
     <input name="length" value={this.state.length} onChange={this.handleChange}/>
+    <p>Breadth (mm):</p>
     <input name="breadth" value={this.state.breadth} onChange={this.handleChange}/>
+    <p>Height (mm):</p>
     <input name="height" value={this.state.height} onChange={this.handleChange}/>
+    <p>Weight (kg Maximum 25kg):</p>
     <input name="weight" value={this.state.weight} onChange={this.handleChange}/>
+    <br />
+    <br />
     <input type='submit' value='submit'/>
-    <p>Cost is: <span name="cost" value={this.state.cost}/></p>
+    <p>Total cost: {this.state.result.error ? this.state.result.error : this.state.result.cost} </p>
     </form>   
     </div>
   );
