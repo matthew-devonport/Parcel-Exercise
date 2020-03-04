@@ -35,9 +35,14 @@ class Form extends React.Component {
       height: this.state.height,
       weight: this.state.weight
     };
-    
+
    getShippingCost(data)
+
+
+
+   
 }
+
 
    render () {
     return (
@@ -49,6 +54,7 @@ class Form extends React.Component {
     <input name="height" value={this.state.height} onChange={this.handleChange}/>
     <input name="weight" value={this.state.weight} onChange={this.handleChange}/>
     <input type='submit' value='submit'/>
+    <p>Cost is: <span id = "display_cost"></span></p>
     </form>   
     </div>
   );
