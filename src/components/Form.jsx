@@ -10,7 +10,8 @@ class Form extends React.Component {
           length: '',
           breadth: '',
           height: '',
-          weight: ''};
+          weight: '',
+          cost: ''};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);  
     }
@@ -31,9 +32,11 @@ class Form extends React.Component {
       length: this.state.length,
       breadth: this.state.breadth,
       height: this.state.height,
-      weight: this.state.weight
+      weight: this.state.weight,
+      cost: this.state.cost
     };
    getShippingCost(data);
+  
 }
 
    render () {
@@ -45,7 +48,7 @@ class Form extends React.Component {
     <input name="height" value={this.state.height} onChange={this.handleChange}/>
     <input name="weight" value={this.state.weight} onChange={this.handleChange}/>
     <input type='submit' value='submit'/>
-    <p>Cost is: <span id="displayCost"/></p>
+    <p>Cost is: <span name="cost" value={this.state.cost}/></p>
     </form>   
     </div>
   );
