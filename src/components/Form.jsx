@@ -16,13 +16,13 @@ class Form extends React.Component {
     }
  
     handleChange(event) {
-     this.setState(
-       {[event.target.length]: event.target.value, 
-        [event.target.breadth]: event.target.value,
-        [event.target.height]: event.target.value,
-        [event.target.weight]: event.target.value
-        }
-       );
+    const target = event.target;
+    const value = target.value
+    const name = target.name;
+    
+        this.setState({
+       [name]: value
+        });
    }
 
    handleSubmit(event) {
@@ -33,10 +33,7 @@ class Form extends React.Component {
       height: this.state.height,
       weight: this.state.weight
     };
-console.log(hello)
    getShippingCost(data);
-   document.getElementById('form').innerHTML = 
-   document.getElementById("displayCost").value;
 }
 
    render () {
