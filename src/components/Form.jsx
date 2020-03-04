@@ -12,9 +12,7 @@ class Form extends React.Component {
           height: '',
           weight: ''};
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-
-    
+        this.handleSubmit = this.handleSubmit.bind(this);  
     }
  
     handleChange(event) {
@@ -35,26 +33,22 @@ class Form extends React.Component {
       height: this.state.height,
       weight: this.state.weight
     };
-
-   getShippingCost(data)
-
-
-
-   
+console.log(hello)
+   getShippingCost(data);
+   document.getElementById('form').innerHTML = 
+   document.getElementById("displayCost").value;
 }
-
 
    render () {
     return (
-  
     <div>
-    <form onSubmit={this.handleSubmit}>
+    <form id="form" onSubmit={this.handleSubmit}>
     <input name="length" value={this.state.length} onChange={this.handleChange}/>
     <input name="breadth" value={this.state.breadth} onChange={this.handleChange}/>
     <input name="height" value={this.state.height} onChange={this.handleChange}/>
     <input name="weight" value={this.state.weight} onChange={this.handleChange}/>
     <input type='submit' value='submit'/>
-    <p>Cost is: <span id = "display_cost"></span></p>
+    <p>Cost is: <span id="displayCost"/></p>
     </form>   
     </div>
   );
@@ -63,7 +57,3 @@ class Form extends React.Component {
 export default Form;
 
 
-
-// State - value of the 4 fields
-
-// UI Form - 4 fields, submit button and div with JS
